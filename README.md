@@ -19,7 +19,7 @@ After installing the Java stack, build the Maven project. You'd also need to man
 ```
 cd
 mvn install:install-file -Dfile=sqljdbc4.jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=4.0 -Dpackaging=jar
-mvn install:install-file -Dfile=bootstrap-0.0.1-SNAPSHOT.jar -DgroupId=org.primefaces.theme -DartifactId=bootstrap -Dversion=0.0.1 -Dpackaging=jar
+mvn install:install-file -Dfile=bootstrap-0.0.1-SNAPSHOT.jar -DgroupId=org.primefaces.theme -DartifactId=bootstrap -Dversion=0.0.1-SNAPSHOT -Dpackaging=jar
 mvn install:install-file -Dfile=/Users/odin/Downloads/ojdbc6-11.2.0.jar  -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0 -Dpackaging=jar
 
 cd accservices
