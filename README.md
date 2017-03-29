@@ -11,14 +11,14 @@ First, clone the three repos (shelfscan, accservices, accservices-web)
 
 Import all three projects into IntelliJ IDEA (or your favorite IDE). The project is set up as Maven multi-module project.
 
-Make sure that all the standard Java dependecies are installed (JDK, Maven, Microsoft JDBC driver). Install the JDBC driver through Maven.
+Make sure that all the standard Java dependecies are installed (JDK, Maven, Microsoft JDBC driver, Oracle JDBC Driver and the Primefaces JAR file). Install the JDBC driver through Maven using mvn install:install-file as documented below. The PrimeFaces jar file is in the repo for your convenience.
 
 After installing the Java stack, build the Maven project. You'd also need to manually install these SqlServer, Oracle JDBC drivers and the custom theme for PrimeFaces:
 
 ```
 mvn install:install-file -Dfile=sqljdbc4.jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=4.0 -Dpackaging=jar
 mvn install:install-file -Dfile=bootstrap-0.0.1-SNAPSHOT.jar -DgroupId=org.primefaces.theme -DartifactId=bootstrap -Dversion=0.0.1 -Dpackaging=jar
-
+mvn install:install-file -Dfile=/Users/odin/Downloads/ojdbc6-11.2.0jar  -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.3 -Dpackaging=jar
 
 cd shelfscan
 mvn clean install -P prod
