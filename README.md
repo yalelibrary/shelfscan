@@ -13,9 +13,13 @@ Import all three projects into IntelliJ IDEA (or your favorite IDE). The project
 
 Make sure that all the standard Java dependecies are installed (JDK, Maven, Microsoft JDBC driver). Install the JDBC driver through Maven.
 
-After installing the Java stack, build the Maven project:
+After installing the Java stack, build the Maven project. You'd also need to manually install these SqlServer, Oracle JDBC drivers and the custom theme for PrimeFaces:
 
 ```
+mvn install:install-file -Dfile=sqljdbc4.jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=4.0 -Dpackaging=jar
+mvn install:install-file -Dfile=bootstrap-0.0.1-SNAPSHOT.jar -DgroupId=org.primefaces.theme -DartifactId=bootstrap -Dversion=0.0.1 -Dpackaging=jar
+
+
 cd shelfscan
 mvn clean install -P prod
 ```
@@ -39,7 +43,7 @@ Adjust the IP in web.xml as necessary. Make sure that you grep for IPs in the di
 Most pages are CAS restricted (in addition to IP restricted). There is no particular reason for that, but it can help enforce authorization for future purposes. Currently, the application only supports CAS authentication (there is no built in login mechanism). 
 The application data comprises of just book scanning (inventory) reports, so it is not sensitive.
 
-# Interface
+# Test
 
 A test version can be turned on the MacMini server in 607, and it can accessed here:
 
