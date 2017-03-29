@@ -16,14 +16,6 @@
 		</dependency>
 	</dependencies>
 
-	<distributionManagement>
-		<snapshotRepository>
-			<id>snappy</id>
-			<name>Maven2 Snapshot Repository</name>
-			<url>http://130.132.146.30:8081/nexus/content/repositories/snapshots</url>
-			<uniqueVersion>true</uniqueVersion>
-		</snapshotRepository>
-	</distributionManagement>
 	<modules>
 		<module>../shelfscan-main</module>
 		<module>../shelfscan-xhtml</module>
