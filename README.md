@@ -5,11 +5,10 @@ Shelfscan
 
 First, clone the three repos (shelfscan, accservices, accservices-web)
 
-1. Clone this repo.
-2. Clone yalelibrary/accservices
-3. Clone yalelibrary/accservices-web
+1. Clone yalelibrary/accservices
+2. Clone yalelibrary/accservices-web
 
-Import all three projects into IntelliJ IDEA (or your favorite IDE). The project is set up as Maven multi-module project.
+Import all projects into IntelliJ IDEA (or your favorite IDE). 
 
 Make sure that all the standard Java dependecies are installed (JDK, Maven, Microsoft JDBC driver, Oracle JDBC Driver and the Primefaces JAR file). Install the JDBC driver through Maven using mvn install:install-file as documented below. The PrimeFaces jar file is in the repo for your convenience.
 
@@ -18,13 +17,16 @@ After installing the Java stack, build the Maven project. You'd also need to man
 ```
 mvn install:install-file -Dfile=sqljdbc4.jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=4.0 -Dpackaging=jar
 mvn install:install-file -Dfile=bootstrap-0.0.1-SNAPSHOT.jar -DgroupId=org.primefaces.theme -DartifactId=bootstrap -Dversion=0.0.1 -Dpackaging=jar
-mvn install:install-file -Dfile=/Users/odin/Downloads/ojdbc6-11.2.0jar  -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.3 -Dpackaging=jar
+mvn install:install-file -Dfile=/Users/odin/Downloads/ojdbc6-11.2.0jar  -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0 -Dpackaging=jar
 
-cd shelfscan
+cd accservices
+mvn clean install
+cd ..
+cd accservices-web
 mvn clean install -P prod
 ```
 
-Copy the resulting war file in accservices-web/target/ to your Tomcat directory (assuming you are installing it to Tomcat). 
+Copy the resulting war file (in accservices-web/target/) to your Tomcat directory (assuming you are installing it to Tomcat). 
 
 Browse to localhost:8080/shelfscan
 
@@ -40,11 +42,5 @@ Adjust the IP in web.xml as necessary. Make sure that you grep for IPs in the di
 
 # Authentication
 
-Most pages are CAS restricted (in addition to IP restricted). There is no particular reason for that, but it can help enforce authorization for future purposes. Currently, the application only supports CAS authentication (there is no built in login mechanism). 
+Most pages in the app are CAS restricted (in addition to IP restricted). There is no particular reason for that, but it can help enforce authorization for future purposes. Currently, the application only supports CAS authentication (there is no built in login mechanism). 
 The application data comprises of just book scanning (inventory) reports, so it is not sensitive.
-
-# Test
-
-A test version can be turned on the MacMini server in 607, and it can accessed here:
-
-agile dot library.yale.edu:8080/shelfscan
